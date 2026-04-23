@@ -1,0 +1,2 @@
+class ColorSelect < ApplicationRecord
+end
