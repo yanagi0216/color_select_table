@@ -1,0 +1,23 @@
+<h1>カラー一覧</h1>
+
+<%= link_to "新規作成", new_color_select_path %>
+
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>作成日</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @color_selects.each do |color_select| %>
+      <tr>
+        <td><%= color_select.id %></td>
+        <td><%= color_select.name %></td>
+        <td><%= color_select.created_at.strftime("%Y/%m/%d") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

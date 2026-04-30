@@ -1,5 +1,16 @@
-<h1>ColorSelects#new</h1>
-<label>名前：</label>
-<input type="text">
-<br>
-<button type="button">保存</button>
+<h1>新規作成</h1>
+
+<%= form_with model: @color_select do |f| %>
+
+  <div>
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= f.submit "保存" %>
+  </div>
+
+<% end %>

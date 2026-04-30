@@ -7,3 +7,21 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+colors = [
+  "赤",
+  "青",
+  "黄",
+  "緑",
+  "紫",
+  "オレンジ",
+  "黒",
+  "白",
+  "ピンク",
+  "水色"
+]
+
+colors.each do |color|
+  ColorSelect.create!(
+    name: color
+  )
+end
