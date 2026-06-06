@@ -1,16 +1,21 @@
-<h1>新規作成</h1>
+<div class="color-select-page">
+  <div class="color-select-card">
+    <div class="color-select-header">
+      <p class="color-select-kicker">Color Select</p>
+      <h1>カラーを新規作成</h1>
+      <p>表示名を入力して、新しいカラー項目を追加しましょう。</p>
+    </div>
 
-<%= form_with model: @color_select do |f| %>
+    <%= form_with model: @color_select, class: "color-select-form" do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "名前", class: "form-label" %>
+        <%= f.text_field :name, class: "form-input", placeholder: "例：ネイビー、ワインレッド、ミントグリーン" %>
+      </div>
 
-  <div>
-    <%= f.label :name, "名前" %>
-    <%= f.text_field :name %>
+      <div class="form-actions">
+        <%= link_to "戻る", color_selects_path, class: "btn-secondary" %>
+        <%= f.submit "保存する", class: "btn-primary" %>
+      </div>
+    <% end %>
   </div>
-
-  <br>
-
-  <div>
-    <%= f.submit "保存" %>
-  </div>
-
-<% end %>
+</div>

@@ -1,23 +1,48 @@
-<h1>カラー一覧</h1>
+<div class="color-select-page">
+  <div class="color-select-container">
+    <div class="color-select-index-header">
+      <div>
+        <p class="color-select-kicker">Color Select</p>
+        <h1>カラー一覧</h1>
+        <p>登録済みのカラー項目を確認・管理できます。</p>
+      </div>
 
-<%= link_to "新規作成", new_color_select_path %>
+      <%= link_to "新規作成", new_color_select_path, class: "btn-primary" %>
+    </div>
 
-<table border="1" cellpadding="10">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>名前</th>
-      <th>作成日</th>
-    </tr>
-  </thead>
+    <div class="color-select-table-card">
+      <table class="color-select-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>作成日</th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @color_selects.each do |color_select| %>
-      <tr>
-        <td><%= color_select.id %></td>
-        <td><%= color_select.name %></td>
-        <td><%= color_select.created_at.strftime("%Y/%m/%d") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @color_selects.each do |color_select| %>
+            <tr>
+              <td>
+                <span class="id-badge">#<%= color_select.id %></span>
+              </td>
+              <td class="color-name">
+                <%= color_select.name %>
+              </td>
+              <td>
+                <%= color_select.created_at.strftime("%Y/%m/%d") %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <% if @color_selects.blank? %>
+        <div class="empty-state">
+          <p>まだカラーが登録されていません。</p>
+          <%= link_to "最初のカラーを作成する", new_color_select_path, class: "btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
